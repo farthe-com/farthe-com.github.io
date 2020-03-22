@@ -36,7 +36,7 @@
 
             <el-container>
                 <el-aside width="150px">
-                    <el-menu default-active="1" @select="handleOpen">
+                    <el-menu :default-active="defaultActive" @select="handleOpen">
                         <el-menu-item v-for="(item, index) in tableData" :index="`${index}`">
                             <i :class="item.icon"></i>
                             <span slot="title">{{item.name}}</span>
@@ -91,6 +91,7 @@
                     name: "收集一些不错的网站",
                     list: [],
                     tableData,
+                    defaultActive: 0
                 }
             },
 
@@ -102,7 +103,7 @@
             },
 
             created() {
-                this.handleOpen(0);
+                this.handleOpen(this.defaultActive);
             }
         });
 
