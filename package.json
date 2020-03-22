@@ -4,7 +4,7 @@
   "description": "收集一些不错的网站",
   "main": "index.js",
   "scripts": {
-    "dev": "live-server ./ --port=8080"
+    "dev": "live-server ./ --port=8080 --ignore=.git;.DS_Store"
   },
   "repository": {
     "type": "git",
