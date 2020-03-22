@@ -25,12 +25,26 @@
 
         <el-container v-cloak>
             <el-header>
-                <h1>{{name}}</h1>
-                <div>
-                    <img alt="GitHub issues"
-                        src="https://img.shields.io/github/issues/farthe-com/farthe-com.github.io?label=%E5%88%86%E4%BA%AB%E7%BD%91%E7%AB%99&style=social">
+                <el-row type="flex" align="middle" justify="space-between">
+                    <el-col :span="10">
+                        <el-row type="flex" align="middle">
+                            <el-col :span="4">
+                                <el-image style="width: 40px; height: 40px" src="static/logo.png" fit="contain">
+                                </el-image>
+                            </el-col>
+                            <el-col :span="20" :pull="5">
+                                <h1>发热网-收集一些不错的网站</h1>
+                            </el-col>
+                        </el-row>
+                    </el-col>
 
-                </div>
+                    <el-col :span="5">
+                        <el-link href="https://github.com/farthe-com/farthe-com.github.io/issues" :underline="false"
+                            target="_blank">
+                            <el-button size="mini">贡献好网站</el-button>
+                        </el-link>
+                    </el-col>
+                </el-row>
 
             </el-header>
 
@@ -80,6 +94,10 @@
                     </el-table>
                 </el-main>
             </el-container>
+
+            <el-footer>
+                <span>联系我们：mouday@qq.com</span>
+            </el-footer>
         </el-container>
     </div>
 
@@ -88,10 +106,10 @@
             el: '#app',
             data() {
                 return {
-                    name: "收集一些不错的网站",
                     list: [],
                     tableData,
-                    defaultActive: '0'
+                    defaultActive: '0',
+                    defaultActiveKey: "defaultActiveKey"
                 }
             },
 
@@ -99,10 +117,13 @@
                 handleOpen(key, keyPath) {
                     // console.log(key, keyPath);
                     this.list = tableData[key].children;
+                    localStorage.setItem(this.defaultActiveKey, key)
                 }
             },
 
             created() {
+                this.defaultActive = localStorage.getItem(this.defaultActiveKey) || '0';
+
                 this.handleOpen(this.defaultActive);
             }
         });

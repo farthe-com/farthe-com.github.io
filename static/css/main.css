@@ -1,10 +1,5 @@
-.box-item{
-    display: flex;
-    align-items: center;
-}
-
-.item-image, .item-name, .item-website{
-    display: block;
+#app{
+  min-width: 900px;
 }
 
 .el-header, .el-footer {
@@ -13,7 +8,13 @@
     text-align: center;
     line-height: 60px;
   }
-  
+
+  .el-footer{
+    background-color: #f7fbfd;
+    color:#666;
+    font-size: 14px;
+  }
+
   .el-aside {
     background-color: #D3DCE6;
     color: #333;
@@ -26,6 +27,7 @@
     color: #333;
     text-align: center;
     line-height: 160px;
+    min-height: 500px;
   }
   
   body > .el-container {
