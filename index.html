@@ -5,21 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>发热网-收集一些不错的网站</title>
 
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="static/css/reset.css">
+
+    <link rel="stylesheet" href="static/element-ui/index.css">
     <link rel="stylesheet" href="static/css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 引入组件库 -->
+    <script src="static/js/vue.js"></script>
+    <script src="static/element-ui/index.js"></script>
     <script src="static/js/data.js"></script>
 
 </head>
 
 <body>
     <div id="app">
-        <h1>{{name}}</h1>
 
-        <div v-for="item in list" class="box-item">
-            <img class="item-image" :src="item.image" width="30" height="30" />
-            <span class="item-name">{{item.name}}</span>
-            <a :href="item.website" target="_blank" class="item-website">{{item.website}}</a>
-        </div>
+        <el-container v-cloak>
+            <el-header>
+                <h1>{{name}}</h1>
+                <div>
+                    <img alt="GitHub issues"
+                        src="https://img.shields.io/github/issues/farthe-com/farthe-com.github.io?label=%E5%88%86%E4%BA%AB%E7%BD%91%E7%AB%99&style=social">
+
+                </div>
+
+            </el-header>
+
+            <el-container>
+                <el-aside width="150px">
+                    <el-menu default-active="1" @select="handleOpen">
+                        <el-menu-item v-for="(item, index) in tableData" :index="`${index}`">
+                            <i :class="item.icon"></i>
+                            <span slot="title">{{item.name}}</span>
+                        </el-menu-item>
+                    </el-menu>
+
+                </el-aside>
+
+                <el-main>
+                    <el-table :data="list" border style="width: 100%">
+                        <el-table-column type="index" label="序号" width="60" header-align="center" align="center">
+                        </el-table-column>
+
+                        <el-table-column prop="date" label="名称" width="200" header-align="center">
+                            <template slot-scope="scope">
+
+                                <el-row>
+                                    <el-col :span="5">
+                                        <el-image style="width: 25px; height: 25px" :src="scope.row.image"
+                                            fit="contain"></el-image>
+                                    </el-col>
+                                    <el-col :span="15">
+                                        <el-link :href="scope.row.website" target="_blank" :underline="false">
+                                            <div style="height: 25px;line-height: 25px;">{{scope.row.name}}</div>
+                                        </el-link>
+                                    </el-col>
+                                </el-row>
+
+                            </template>
+
+                        </el-table-column>
+
+
+                        <el-table-column prop="desc" label="简介" header-align="center"></el-table-column>
+
+                        <el-table-column prop="website" label="地址" header-align="center" width="300">
+                            <template slot-scope="scope">
+                                <el-link :href="scope.row.website" target="_blank">{{scope.row.website}}</el-link>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </el-main>
+            </el-container>
+        </el-container>
     </div>
 
     <script>
@@ -28,9 +89,21 @@
             data() {
                 return {
                     name: "收集一些不错的网站",
-                    list,
+                    list: [],
+                    tableData,
                 }
             },
+
+            methods: {
+                handleOpen(key, keyPath) {
+                    // console.log(key, keyPath);
+                    this.list = tableData[key].children;
+                }
+            },
+
+            created() {
+                this.handleOpen(0);
+            }
         });
 
     </script>
