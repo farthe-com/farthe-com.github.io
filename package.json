@@ -1,0 +1,19 @@
+{
+  "name": "farthe.com",
+  "version": "1.0.0",
+  "description": "收集一些不错的网站",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server ./ --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farthe-com/farthe-com.git"
+  },
+  "author": "pengshiyu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farthe-com/farthe-com/issues"
+  },
+  "homepage": "https://github.com/farthe-com/farthe-com#readme"
+}

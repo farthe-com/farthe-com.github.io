@@ -35,6 +35,7 @@
                     </el-link>
                     <span class="title-desc">收集一些不错的网站</span>
                 </div>
+
                 <div class="flex">
                     <el-input size="mini" v-model="keywords" @keypress.enter.native="search"></el-input>
                     <el-button size="mini" style="margin-left:5px" @click="search"><span class="el-icon-search"></span>
@@ -117,7 +118,7 @@
                     // 翻页
                     pagination: {
                         list: [],
-                        pageSize: 5,
+                        pageSize: 10,
                         currentPage: 1,
                         total: 0,
                     },

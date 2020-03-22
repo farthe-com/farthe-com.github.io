@@ -115,6 +115,12 @@ const tableData = [
                 image: "static/img/xclient.info.ico",
                 website: "https://xclient.info/"
             },
+            {
+                name: "哔哩哔哩",
+                desc: "国内知名的视频弹幕网站",
+                image: "static/img/www.bilibili.com.ico",
+                website: "https://www.bilibili.com/"
+            },
         ]
     },
     {
