@@ -26,19 +26,17 @@
         <el-container v-cloak>
             <el-header>
                 <el-row type="flex" align="middle" justify="space-between">
-                    <el-col :span="10">
-                        <el-row type="flex" align="middle">
-                            <el-col :span="4">
+                    <el-col :span="4">
+                        <el-link href="./">
+                            <div style="display: flex; align-items: center;">
                                 <el-image style="width: 40px; height: 40px" src="static/logo.png" fit="contain">
                                 </el-image>
-                            </el-col>
-                            <el-col :span="20" :pull="5">
-                                <h1>发热网-收集一些不错的网站</h1>
-                            </el-col>
-                        </el-row>
+                                <span class="title">发热网</span>
+                            </div>
+                        </el-link>
                     </el-col>
 
-                    <el-col :span="5">
+                    <el-col :span="3">
                         <el-link href="https://github.com/farthe-com/farthe-com.github.io/issues" :underline="false"
                             target="_blank">
                             <el-button size="mini">贡献好网站</el-button>

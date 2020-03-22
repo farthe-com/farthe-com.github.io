@@ -1,7 +1,12 @@
 #app{
   min-width: 900px;
 }
-
+.title{
+  display:inline-block;
+   margin-left: 10px;
+   font-size: 26px;
+   font-weight: 500;
+}
 .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
