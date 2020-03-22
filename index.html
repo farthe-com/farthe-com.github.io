@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发热网-收集一些不错的网站</title>
+
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="static/js/data.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+
+        <div v-for="item in list" class="box-item">
+            <img class="item-image" :src="item.image" width="30" height="30" />
+            <span class="item-name">{{item.name}}</span>
+            <a :href="item.website" target="_blank" class="item-website">{{item.website}}</a>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    name: "收集一些不错的网站",
+                    list,
+                }
+            },
+        });
+
+    </script>
+</body>
+
+</html>

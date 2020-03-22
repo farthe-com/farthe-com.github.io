@@ -1,0 +1,9 @@
+.box-item{
+    display: flex;
+
+    align-items: center;
+}
+
+.item-image, .item-name, .item-website{
+    display: block;
+} 
