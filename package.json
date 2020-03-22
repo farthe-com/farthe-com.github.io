@@ -1,7 +1,7 @@
 {
   "name": "farthe.com",
   "version": "1.0.0",
-  "description": "收集一些不错的网站",
+  "description": "收集一些不错的网站, http:www.farthe.com",
   "main": "index.js",
   "scripts": {
     "dev": "live-server ./ --port=8080 --ignore=.git;.DS_Store"
