@@ -25,25 +25,26 @@
 
         <el-container v-cloak>
             <el-header>
-                <el-row type="flex" align="middle" justify="space-between">
-                    <el-col :span="4">
-                        <el-link href="./">
-                            <div style="display: flex; align-items: center;">
-                                <el-image style="width: 40px; height: 40px" src="static/logo.png" fit="contain">
-                                </el-image>
-                                <span class="title">发热网</span>
-                            </div>
-                        </el-link>
-                    </el-col>
 
-                    <el-col :span="3">
-                        <el-link href="https://github.com/farthe-com/farthe-com.github.io/issues" :underline="false"
-                            target="_blank">
-                            <el-button size="mini">贡献好网站</el-button>
-                        </el-link>
-                    </el-col>
-                </el-row>
+                <div class="title">
+                    <el-link href="./">
+                        <div class="title-image-name">
+                            <el-image class="title-image" src="static/logo.png" fit="contain"></el-image>
+                            <span class="title-name">发热网</span>
+                        </div>
+                    </el-link>
+                    <span class="title-desc">收集一些不错的网站</span>
+                </div>
+                <div class="flex">
+                    <el-input size="mini" v-model="keywords" @keypress.enter.native="search"></el-input>
+                    <el-button size="mini" style="margin-left:5px" @click="search"><span class="el-icon-search"></span>
+                    </el-button>
 
+                    <el-link href="https://github.com/farthe-com/farthe-com.github.io/issues" :underline="false"
+                        target="_blank" style="margin-left:20px">
+                        <el-button size="mini">贡献好网站</el-button>
+                    </el-link>
+                </div>
             </el-header>
 
             <el-container>
@@ -58,25 +59,19 @@
                 </el-aside>
 
                 <el-main>
-                    <el-table :data="list" border style="width: 100%">
+                    <el-table :data="pagination.list" border style="width: 100%">
                         <el-table-column type="index" label="序号" width="60" header-align="center" align="center">
                         </el-table-column>
 
                         <el-table-column prop="date" label="名称" width="200" header-align="center">
                             <template slot-scope="scope">
-
-                                <el-row>
-                                    <el-col :span="5">
-                                        <el-image style="width: 25px; height: 25px" :src="scope.row.image"
-                                            fit="contain"></el-image>
-                                    </el-col>
-                                    <el-col :span="15">
-                                        <el-link :href="scope.row.website" target="_blank" :underline="false">
-                                            <div style="height: 25px;line-height: 25px;">{{scope.row.name}}</div>
-                                        </el-link>
-                                    </el-col>
-                                </el-row>
-
+                                <el-link :href="scope.row.website" target="_blank" :underline="false">
+                                    <div class="table-item-icon-name">
+                                        <el-image class="table-item-icon" :src="scope.row.image" fit="contain">
+                                        </el-image>
+                                        <div class="table-item-name">{{scope.row.name}}</div>
+                                    </div>
+                                </el-link>
                             </template>
 
                         </el-table-column>
@@ -90,12 +85,19 @@
                             </template>
                         </el-table-column>
                     </el-table>
+
+                    <el-pagination background layout="prev, pager, next" hide-on-single-page style="margin-top:20px"
+                        :page-size="pagination.pageSize" :total="pagination.total" @current-change="handleCurrentChange"
+                        :current-page.sync="pagination.currentPage">
+                    </el-pagination>
+
                 </el-main>
             </el-container>
 
             <el-footer>
                 <span>联系我们：mouday@qq.com</span>
             </el-footer>
+
         </el-container>
     </div>
 
@@ -104,24 +106,75 @@
             el: '#app',
             data() {
                 return {
-                    list: [],
+                    // 引入的变量
                     tableData,
+
+                    // tab切换
+                    currentChildren: [],
                     defaultActive: '0',
-                    defaultActiveKey: "defaultActiveKey"
+                    defaultActiveKey: "defaultActiveKey",
+
+                    // 翻页
+                    pagination: {
+                        list: [],
+                        pageSize: 5,
+                        currentPage: 1,
+                        total: 0,
+                    },
+
+                    // 搜索
+                    keywords: "",
+                    searchReuslt: []
+                }
+            },
+
+            watch: {
+                currentChildren() {
+                    this.pagination.total = this.currentChildren.length;
+                    this.pagination.currentPage = 1;
+                    this.handleCurrentChange();
                 }
             },
 
             methods: {
+                // tab切换
                 handleOpen(key, keyPath) {
                     // console.log(key, keyPath);
-                    this.list = tableData[key].children;
+                    this.currentChildren = tableData[key].children;
                     localStorage.setItem(this.defaultActiveKey, key)
+                },
+
+                // 翻页
+                handleCurrentChange() {
+                    const start = (this.pagination.currentPage - 1) * this.pagination.pageSize;
+                    const end = this.pagination.currentPage * this.pagination.pageSize;
+                    // console.log(start, end);
+
+                    this.pagination.list = this.currentChildren.slice(start, end);
+                },
+
+                // 搜索
+                search() {
+                    // 正则忽略大小写
+                    const keywords = new RegExp(this.keywords.trim(), "i")
+
+                    this.searchReuslt = [];
+
+                    for (const child of tableData) {
+                        for (const item of child.children) {
+                            if (item.desc.search(keywords) > -1 || item.name.search(keywords) > -1) {
+                                this.searchReuslt.push(item)
+                            }
+                        }
+                    }
+
+                    // console.log(this.searchReuslt);
+                    this.currentChildren = this.searchReuslt;
                 }
             },
 
             created() {
                 this.defaultActive = localStorage.getItem(this.defaultActiveKey) || '0';
-
                 this.handleOpen(this.defaultActive);
             }
         });

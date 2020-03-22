@@ -1,12 +1,64 @@
 #app{
   min-width: 900px;
 }
+
+/* 公共的样式 */
+.flex{
+  display: flex;
+}
+
+/* 头部标题样式 */
 .title{
-  display:inline-block;
+  display: flex; 
+  align-items: center;
+}
+
+.title .title-name{
+   display:inline-block;
    margin-left: 10px;
    font-size: 26px;
    font-weight: 500;
 }
+
+.title .title-image{
+  width: 40px; 
+  height: 40px
+}
+
+.title .title-image-name{
+  display: flex;
+  align-items: center;
+}
+
+.title .title-desc{
+  display:inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  color: #666666;
+  margin-left: 10px;
+  height: 50px;
+}
+
+/* 头部标题样式结束 */
+
+/* 表格内部单元样式 */
+.table-item-icon-name{
+  display: flex;
+  align-items: center;
+}
+
+.table-item-icon-name .table-item-icon{
+  width: 20px; 
+  height: 20px
+}
+
+.table-item-icon-name .table-item-name{
+  margin-left: 8px;
+  height: 20px;
+  line-height: 20px;
+}
+
+/* 表格内部单元样式结束 */
 .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
@@ -14,40 +66,46 @@
     line-height: 60px;
   }
 
-  .el-footer{
-    background-color: #f7fbfd;
-    color:#666;
-    font-size: 14px;
-  }
+.el-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-  }
-  
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-    min-height: 500px;
-  }
-  
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-  
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-  
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
+.el-footer{
+  background-color: #f7fbfd;
+  color:#666;
+  font-size: 14px;
+}
 
-  [v-cloak] {
-    display: none !important;
+.el-aside {
+  background-color: #D3DCE6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #E9EEF3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+  min-height: 500px;
+}
+
+body > .el-container {
+  margin-bottom: 40px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+
+[v-cloak] {
+  display: none !important;
 }
