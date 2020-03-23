@@ -9,6 +9,15 @@ const tableData = [
                 image: "static/img/www.iconfont.cn.png",
                 website: "https://www.iconfont.cn/"
             },
+
+
+            {
+                name: "Easyicon",
+                desc: "ICON(SVG/PNG/ICO/ICNS)图标搜索下载",
+                image: "static/img/www.easyicon.net.png",
+                website: "http://www.easyicon.net/"
+            },
+
             {
                 name: "Element",
                 desc: "一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库",
@@ -29,7 +38,21 @@ const tableData = [
                 desc: "渐进式JavaScript 框架",
                 image: "static/img/cn.vuejs.org.png",
                 website: "https://cn.vuejs.org/"
+            },
+
+            {
+                name: "iView",
+                desc: "一套基于 Vue.js 的高质量UI 组件库",
+                image: "static/img/www.iviewui.com.ico",
+                website: "https://www.iviewui.com/"
+            },
+            {
+                name: "Ant Design of Vue",
+                desc: "Ant Design 的 Vue 实现，开发和服务于企业级后台产品",
+                image: "static/img/www.antdv.com.ico",
+                website: "https://www.antdv.com/"
             }
+
         ]
     },
     {
@@ -37,19 +60,18 @@ const tableData = [
         icon: "el-icon-orange",
         children: [
             {
+                name: "Laravel",
+                desc: "The PHP Framework for Web Artisans",
+                image: "static/img/laravel.com.ico",
+                website: "https://laravel.com/"
+            },
+
+            {
                 name: "AdonisJs",
                 desc: "一个语法清新和优雅的Node.js Web框架",
                 image: "static/img/adonisjs.com.cn.png",
                 website: "https://adonisjs.com.cn/"
             },
-
-            {
-                name: "Laravel",
-                desc: "一套简洁、优雅的PHP Web开发框架",
-                image: "static/img/laravel.com.ico",
-                website: "https://laravel.com/"
-            },
-
 
             {
                 name: "ThinkPHP",
@@ -63,9 +85,28 @@ const tableData = [
                 desc: "现代的、以开发人员为中心的Python Web框架",
                 image: "static/img/docs.masoniteproject.com.png",
                 website: "https://docs.masoniteproject.com/"
+            },
+            {
+                name: "WebMagic",
+                desc: "一个简单灵活的Java爬虫框架",
+                image: "static/img/webmagic.io.ico",
+                website: "http://webmagic.io/"
+            },
+            {
+                name: "Django",
+                desc: "Django makes it easier to build better Web apps more quickly and with less code.",
+                image: "static/img/www.djangoproject.com.ico",
+                website: "https://www.djangoproject.com/"
+            },
+            {
+                name: "Scrapy",
+                desc: "An open source and collaborative framework for extracting the data you need from websites. In a fast, simple, yet extensible way.",
+                image: "static/img/scrapy.org.png",
+                website: "https://scrapy.org/"
+            },
 
 
-            }
+
         ]
     },
     {
@@ -121,6 +162,62 @@ const tableData = [
                 image: "static/img/www.bilibili.com.ico",
                 website: "https://www.bilibili.com/"
             },
+
+            {
+                name: "mpv",
+                desc: "a free, open source, and cross-platform media player",
+                image: "static/img/mpv.io.png",
+                website: "https://mpv.io/"
+            },
+
+            {
+                name: "Tampermonkey",
+                desc: "一款免费的浏览器扩展和最为流行的用户脚本管理器",
+                image: "static/img/www.tampermonkey.net.png",
+                website: "https://www.tampermonkey.net/"
+            },
+
+            {
+                name: "Typora",
+                desc: "一款轻便简洁的Markdown编辑器,支持即时渲染",
+                image: "static/img/www.typora.io.png",
+                website: "https://www.typora.io/"
+            },
+
+            {
+                name: "草料二维码",
+                desc: "二维码生成器",
+                image: "static/img/cli.im.ico",
+                website: "https://cli.im/"
+            },
+
+            {
+                name: "Point ML",
+                desc: "Register your FREE .ML Domain Name",
+                image: "static/img/www.point.ml.ico",
+                website: "http://www.point.ml/"
+            },
+            {
+                name: "TUNA",
+                desc: "清华大学开源软件镜像站",
+                image: "static/img/mirrors.tuna.tsinghua.edu.cn.png",
+                website: "https://mirrors.tuna.tsinghua.edu.cn/"
+
+            },
+            {
+                name: "EditThisCookie",
+                desc: "A very useful extension, one click to quickly view or remove cookies. ",
+                image: "static/img/www.editthiscookie.com.png",
+                website: "http://www.editthiscookie.com/"
+
+            },
+
+
+
+
+
+
+
         ]
     },
     {

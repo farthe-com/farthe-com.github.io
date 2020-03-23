@@ -50,7 +50,7 @@
                 </div>
             </el-header>
 
-            <el-container>
+            <div class="container">
                 <el-aside width="150px">
                     <el-menu :default-active="defaultActive" @select="handleOpen">
                         <el-menu-item v-for="(item, index) in tableData" :index="`${index}`">
@@ -58,7 +58,6 @@
                             <span slot="title">{{item.name}}</span>
                         </el-menu-item>
                     </el-menu>
-
                 </el-aside>
 
                 <el-main>
@@ -89,17 +88,17 @@
                         </el-table-column>
                     </el-table>
 
-                    <el-pagination background layout="prev, pager, next" hide-on-single-page style="margin-top:20px"
-                        :page-size="pagination.pageSize" :total="pagination.total" @current-change="handleCurrentChange"
-                        :current-page.sync="pagination.currentPage">
+                    <el-pagination background layout="total, prev, pager, next" hide-on-single-page
+                        style="margin-top:20px" :page-size="pagination.pageSize" :total="pagination.total"
+                        @current-change="handleCurrentChange" :current-page.sync="pagination.currentPage">
                     </el-pagination>
 
                 </el-main>
-            </el-container>
+            </div>
 
-            <el-footer>
+            <!-- <el-footer>
                 <span>联系我们：mouday@qq.com</span>
-            </el-footer>
+            </el-footer> -->
 
         </el-container>
     </div>

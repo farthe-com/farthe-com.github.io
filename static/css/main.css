@@ -78,11 +78,25 @@
   font-size: 14px;
 }
 
+.container{
+
+}
+
 .el-aside {
   background-color: #D3DCE6;
   color: #333;
   text-align: center;
   line-height: 200px;
+  
+  top: 60px;
+  /* height: 100%; */
+  /* position: fixed;
+  
+  /* font-size: 0; */
+  /* top: 60px; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .el-main {
@@ -91,6 +105,9 @@
   text-align: center;
   line-height: 160px;
   min-height: 500px;
+  /* position: relative; */
+  margin-left: 150px;
+  /* width: calc(100%-160px); */
 }
 
 body > .el-container {
