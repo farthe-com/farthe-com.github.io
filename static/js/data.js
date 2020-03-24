@@ -6,7 +6,7 @@ const tableData = [
             {
                 name: "Iconfont",
                 desc: "阿里妈妈MUX倾力打造的矢量图标管理、交流平台",
-                image: "static/img/www.iconfont.cn.png",
+                image: "static/img/www.iconfont.cn.ico",
                 website: "https://www.iconfont.cn/"
             },
 
