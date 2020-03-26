@@ -51,6 +51,42 @@ const tableData = [
                 desc: "Ant Design 的 Vue 实现，开发和服务于企业级后台产品",
                 image: "static/img/www.antdv.com.ico",
                 website: "https://www.antdv.com/"
+            },
+            {
+                name: "FlatUIColors",
+                desc: "280 handpicked colors",
+                image: "static/img/flatuicolors.com.ico",
+                website: "https://flatuicolors.com/"
+            },
+            {
+                name: "中国色",
+                desc: "提供各种中国的传统颜色的名称",
+                image: "static/img/zhongguose.com.ico",
+                website: "http://zhongguose.com/"
+            },
+            {
+                name: "Font Awesome",
+                desc: "提供可缩放矢量图标,它可以被定制大小、颜色、阴影以及任何可以用CSS的样式",
+                image: "static/img/www.fontawesome.com.cn.png",
+                website: "http://www.fontawesome.com.cn/"
+            },
+            {
+                name: "jQuery插件库",
+                desc: "jQuery插件下载",
+                image: "static/img/www.jq22.com.ico",
+                website: "http://www.jq22.com/"
+            },
+            {
+                name: "爱给网",
+                desc: "免费提供免费的音效配乐|3D模型|视频|游戏素材资源下载",
+                image: "static/img/www.aigei.com.ico",
+                website: "http://www.aigei.com/"
+            },
+            {
+                name: "codepen",
+                desc: "The best place to build, test, and discover front-end code.",
+                image: "static/img/codepen.io.ico",
+                website: "https://codepen.io/"
             }
 
         ]
