@@ -248,6 +248,16 @@ const tableData = [
 
             },
 
+            {
+                name: "Cloudflare",
+                desc: "免费CDN网站加速服务",
+                image: "static/img/dash.cloudflare.com.ico",
+                website: "https://dash.cloudflare.com/"
+
+            },
+
+
+
 
 
 
