@@ -255,6 +255,13 @@ const tableData = [
                 website: "https://dash.cloudflare.com/"
 
             },
+            {
+                name: "Hexo",
+                desc: "快速、简洁且高效的博客框架",
+                image: "static/img/hexo.io.png",
+                website: "https://hexo.io/zh-cn/"
+
+            }
 
 
 
