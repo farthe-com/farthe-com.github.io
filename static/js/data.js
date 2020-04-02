@@ -261,7 +261,23 @@ const tableData = [
                 image: "static/img/hexo.io.png",
                 website: "https://hexo.io/zh-cn/"
 
+            },
+
+            {
+                name: "Matplotlib",
+                desc: "Python 的绘图库",
+                image: "static/img/matplotlib.org.ico",
+                website: "https://matplotlib.org/"
+            },
+            {
+                name: "知乎",
+                desc: "问答社区",
+                image: "static/img/www.zhihu.com.ico",
+                website: "https://www.zhihu.com/"
+
             }
+
+
 
 
 
