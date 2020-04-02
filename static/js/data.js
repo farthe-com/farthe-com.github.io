@@ -276,17 +276,6 @@ const tableData = [
                 website: "https://www.zhihu.com/"
 
             }
-
-
-
-
-
-
-
-
-
-
-
         ]
     },
     {
@@ -311,8 +300,6 @@ const tableData = [
                 image: "static/img/nodejs.org.png",
                 website: "https://nodejs.org/zh-cn/"
             }
-
-
         ]
     }
 
