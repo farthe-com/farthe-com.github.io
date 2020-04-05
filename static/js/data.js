@@ -141,7 +141,12 @@ const tableData = [
                 website: "https://scrapy.org/"
             },
 
-
+            {
+                name: "Nuxt.js",
+                desc: "一个基于 Vue.js 的服务端渲染应用框架",
+                image: "static/img/zh.nuxtjs.org.ico",
+                website: "https://zh.nuxtjs.org/"
+            },
 
         ]
     },

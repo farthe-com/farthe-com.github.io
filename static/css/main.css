@@ -73,6 +73,7 @@ body{
   }
 
 .el-header{
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -104,7 +105,8 @@ body{
   
   /* font-size: 0; */
   /* top: 60px; */
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   bottom: 0;
   left: 0;
 }
