@@ -87,6 +87,12 @@ const tableData = [
                 desc: "The best place to build, test, and discover front-end code.",
                 image: "static/img/codepen.io.ico",
                 website: "https://codepen.io/"
+            },
+            {
+                name: "uni-app",
+                desc: "使用 Vue.js 开发所有前端应用的框架",
+                image: "static/img/uniapp.dcloud.io.png",
+                website: "https://uniapp.dcloud.io/"
             }
 
         ]
@@ -280,6 +286,13 @@ const tableData = [
                 image: "static/img/www.zhihu.com.ico",
                 website: "https://www.zhihu.com/"
 
+            },
+
+            {
+                name: "Heroku",
+                desc: "Cloud Application Platform",
+                image: "static/img/www.heroku.com.ico",
+                website: "https://www.heroku.com/"
             }
         ]
     },
