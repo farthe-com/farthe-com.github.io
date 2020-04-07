@@ -179,24 +179,14 @@ const tableData = [
                 image: "static/img/shields.io.png",
                 website: "https://shields.io/"
             },
-            {
-                name: "菜鸟教程",
-                desc: "提供编程的基础技术教程",
-                image: "static/img/www.runoob.com.png",
-                website: "https://www.runoob.com/"
-            },
+
             {
                 name: "BootCDN",
                 desc: "稳定、快速、免费的前端开源项目 CDN 加速服务",
                 image: "static/img/www.bootcdn.cn.png",
                 website: "https://www.bootcdn.cn/"
             },
-            {
-                name: "CSDN",
-                desc: "专业IT技术社区",
-                image: "static/img/www.csdn.net.ico",
-                website: "https://www.csdn.net/"
-            },
+
             {
                 name: "Xclient",
                 desc: "精品MAC应用软件分享",
@@ -280,20 +270,30 @@ const tableData = [
                 image: "static/img/matplotlib.org.ico",
                 website: "https://matplotlib.org/"
             },
-            {
-                name: "知乎",
-                desc: "问答社区",
-                image: "static/img/www.zhihu.com.ico",
-                website: "https://www.zhihu.com/"
 
-            },
 
             {
                 name: "Heroku",
                 desc: "Cloud Application Platform",
                 image: "static/img/www.heroku.com.ico",
                 website: "https://www.heroku.com/"
+            },
+            {
+                name: "Jinja",
+                desc: "modern and designer-friendly templating language for Python",
+                image: "static/img/jinja.palletsprojects.com.png",
+                website: "https://jinja.palletsprojects.com/"
+            },
+
+            {
+                name: "lxml",
+                desc: "the most feature-rich and easy-to-use library for processing XML and HTML in the Python language",
+                image: "static/img/lxml.de.ico",
+                website: "https://lxml.de/"
             }
+
+
+
         ]
     },
     {
@@ -317,7 +317,50 @@ const tableData = [
                 desc: "一个基于 Chrome V8 引擎 的 JavaScript 运行时",
                 image: "static/img/nodejs.org.png",
                 website: "https://nodejs.org/zh-cn/"
+            },
+            {
+                name: "Java",
+                desc: "一项用于开发应用程序的技术",
+                image: "static/img/www.java.com.png",
+                website: "https://www.java.com/zh_CN/"
             }
+
+
+
+        ]
+    },
+
+    {
+        name: "阅读",
+        icon: "el-icon-document",
+        children: [
+
+            {
+                name: "知乎",
+                desc: "问答社区",
+                image: "static/img/www.zhihu.com.ico",
+                website: "https://www.zhihu.com/"
+
+            },
+
+            {
+                name: "掘金",
+                desc: "一个帮助开发者成长的社区",
+                image: "static/img/juejin.im.png",
+                website: "https://juejin.im/"
+            },
+            {
+                name: "CSDN",
+                desc: "专业IT技术社区",
+                image: "static/img/www.csdn.net.ico",
+                website: "https://www.csdn.net/"
+            },
+            {
+                name: "菜鸟教程",
+                desc: "提供编程的基础技术教程",
+                image: "static/img/www.runoob.com.png",
+                website: "https://www.runoob.com/"
+            },
         ]
     }
 
