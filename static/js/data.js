@@ -290,7 +290,30 @@ const tableData = [
                 desc: "the most feature-rich and easy-to-use library for processing XML and HTML in the Python language",
                 image: "static/img/lxml.de.ico",
                 website: "https://lxml.de/"
+            },
+            {
+                name: "CrxDL.COM",
+                desc: "下载Chrome扩展插件Crx离线安装包",
+                image: "static/img/crxdl.com.png",
+                website: "https://crxdl.com/"
+
+            },
+            {
+                name: "webscraper",
+                desc: "Making web data extraction easy and accessible for everyone",
+                image: "static/img/www.webscraper.io.png",
+                website: "https://www.webscraper.io/"
+
+            },
+            {
+                name: "NPM",
+                desc: " Node package manager",
+                image: "static/img/www.npmjs.com.png",
+                website: "https://www.npmjs.com/"
+
             }
+
+
 
 
 
