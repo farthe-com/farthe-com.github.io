@@ -311,8 +311,21 @@ const tableData = [
                 image: "static/img/www.npmjs.com.png",
                 website: "https://www.npmjs.com/"
 
-            }
+            },
+            {
+                name: "Foxmail",
+                desc: "邮箱客户端软件",
+                image: "static/img/www.foxmail.com.ico",
+                website: "https://www.foxmail.com/"
+            },
 
+            {
+                name: "Snip",
+                desc: " 简单高效的截图工具",
+                image: "static/img/snip.qq.com.png",
+                website: "https://snip.qq.com/"
+
+            }
 
 
 
