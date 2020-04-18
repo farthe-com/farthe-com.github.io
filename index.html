@@ -69,7 +69,7 @@
                             <template slot-scope="scope">
                                 <el-link :href="scope.row.website" target="_blank" :underline="false">
                                     <div class="table-item-icon-name">
-                                        <el-image class="table-item-icon" :src="scope.row.image" fit="contain">
+                                        <el-image class="table-item-icon" :src="'static/img/' + scope.row.image" fit="contain">
                                         </el-image>
                                         <div class="table-item-name">{{scope.row.name}}</div>
                                     </div>
