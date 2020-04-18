@@ -1,9 +1,7 @@
-const tableData = [
-    {
+const tableData = [{
         name: "前端",
         icon: "el-icon-monitor",
-        children: [
-            {
+        children: [{
                 name: "Iconfont",
                 desc: "阿里妈妈MUX倾力打造的矢量图标管理、交流平台",
                 image: "www.iconfont.cn.ico",
@@ -105,8 +103,7 @@ const tableData = [
     {
         name: "后台",
         icon: "el-icon-orange",
-        children: [
-            {
+        children: [{
                 name: "Laravel",
                 desc: "The PHP Framework for Web Artisans",
                 image: "laravel.com.ico",
@@ -164,8 +161,7 @@ const tableData = [
     {
         name: "工具",
         icon: "el-icon-suitcase",
-        children: [
-            {
+        children: [{
                 name: "JSON",
                 desc: "JSON在线解析及格式化验证",
                 image: "www.json.cn.png",
@@ -330,18 +326,21 @@ const tableData = [
                 image: "snip.qq.com.png",
                 website: "https://snip.qq.com/"
 
-            }
+            },
+            {
+                name: "VSCode",
+                desc: "免费开源的编辑器",
+                image: "code.visualstudio.com.ico",
+                website: "https://code.visualstudio.com/"
 
-
-
+            },
 
         ]
     },
     {
         name: "语言",
         icon: "el-icon-trophy",
-        children: [
-            {
+        children: [{
                 name: "Python",
                 desc: "一种跨平台、面向对象的动态类型语言",
                 image: "www.python.org.png",
