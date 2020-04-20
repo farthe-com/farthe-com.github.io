@@ -1,23 +1,70 @@
 // ==UserScript==
 // @name         聚合搜索
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.1.1
 // @description  整合大部分网页搜索，提高搜索效率
 // @author       Peng Shiyu
 // @website      https://www.pengshiyu.com/
 
-// @match        https://www.baidu.com/s*
-// @match        https://cn.bing.com/search*
-// @match        https://www.so.com/s*
-// @match        https://www.sogou.com/web*
-// @match        https://www.google.com.hk/search*
-// @match        https://fanyi.sogou.com/*
+// @match        *://www.baidu.com/s*
+// @match        *://cn.bing.com/search*
+// @match        *://www.so.com/s*
+// @match        *://www.sogou.com/web*
+// @match        *://www.google.com.hk/search*
+// @match        *://www.google.com/search*
+// @match        *://fanyi.sogou.com/*
 
 // @grant        unsafeWindow
 // @grant        window.onload
 // ==/UserScript==
 
-// @require      file:///Users/hina/workspace/www.farthe.com/code/search.js
+// @require      file:///Users/hina/workspace/www.farthe.com/code/chrome/search/index.js
+
+
+// 搜索网址配置
+const urlMapping = [{
+        name: '百度',
+        searchUrl: 'https://www.baidu.com/s?wd=',
+        keyName: 'wd',
+        testUrl: /https:\/\/www\.baidu\.com\/s.*/,
+    },
+    {
+        name: '必应',
+        searchUrl: 'https://cn.bing.com/search?q=',
+        keyName: 'q',
+        testUrl: /https:\/\/cn\.bing\.com\/search.*/,
+    },
+    {
+        name: '360',
+        searchUrl: 'https://www.so.com/s?q=',
+        keyName: 'q',
+        testUrl: /https:\/\/www\.so\.com\/s.*/,
+    },
+    {
+        name: '搜狗',
+        searchUrl: 'https://www.sogou.com/web?query=',
+        keyName: 'query',
+        testUrl: /https:\/\/www\.sogou\.com\/web.*/,
+    },
+    {
+        name: 'Google',
+        searchUrl: 'https://www.google.com/search?q=',
+        keyName: 'q',
+        testUrl: /https:\/\/www.google.com\/search.*/,
+    },
+    {
+        name: 'Google.hk',
+        searchUrl: 'https://www.google.com.hk/search?q=',
+        keyName: 'q',
+        testUrl: /https:\/\/www.google.com.hk\/search.*/,
+    },
+    {
+        name: '翻译',
+        searchUrl: 'https://fanyi.sogou.com/?keyword=',
+        keyName: 'keyword',
+        testUrl: /https:\/\/fanyi.sogou.com\/.*/,
+    }
+];
 
 // JS获取url参数
 function getQueryVariable(variable) {
@@ -47,55 +94,14 @@ function getKeywords() {
     return keywords;
 };
 
-// 搜索网址配置
-const urlMapping = [{
-        name: '百度',
-        searchUrl: 'https://www.baidu.com/s?wd=',
-        keyName: 'wd',
-        testUrl: /https:\/\/www\.baidu\.com\/s.*/,
-    },
-    {
-        name: '必应',
-        searchUrl: 'https://cn.bing.com/search?q=',
-        keyName: 'q',
-        testUrl: /https:\/\/cn\.bing\.com\/search.*/,
-    }, {
-        name: '360',
-        searchUrl: 'https://www.so.com/s?q=',
-        keyName: 'q',
-        testUrl: /https:\/\/www\.so\.com\/s.*/,
-    },
-    {
-        name: '搜狗',
-        searchUrl: 'https://www.sogou.com/web?query=',
-        keyName: 'query',
-        testUrl: /https:\/\/www\.sogou\.com\/web.*/,
-    },
-    {
-        name: 'Google',
-        searchUrl: 'https://www.google.com.hk/search?q=',
-        keyName: 'q',
-        testUrl: /https:\/\/www.google.com.hk\/search.*/,
-    },
-    {
-        name: '翻译',
-        searchUrl: 'https://fanyi.sogou.com/?keyword=',
-        keyName: 'keyword',
-        testUrl: /https:\/\/fanyi.sogou.com\/.*/,
-
-    }
-
-
-];
-
+// 添加节点
 function addBox() {
-    let keywords = getKeywords();
-
     // 主元素
-    let div = document.createElement('div')
+    var div = document.createElement('div')
     div.id = 'search-app-box'
     div.style = "position: fixed; top: 120px; left: 20px; width: 80px; background-color: #EEEEEE; font-size: 12px;z-index: 99999;"
-    document.body.appendChild(div)
+    // document.body.appendChild(div)
+    document.body.insertAdjacentElement("afterBegin", div);
 
     // 标题
     let title = document.createElement('span')
@@ -114,7 +120,7 @@ function addBox() {
         let hoverStyle = style + "color: #ffffff; background-color: #666666;";
 
         let a = document.createElement('a')
-        a.href = item.searchUrl + keywords
+        a.href = 'javascript:;'
         a.innerText = item.name
         a.style = defaultStyle
         a.id = index
@@ -126,20 +132,15 @@ function addBox() {
         a.onmouseleave = function () {
             this.style = defaultStyle
         }
+        a.onclick = function () {
+            window.location.href = item.searchUrl + getKeywords();
+        }
 
         div.appendChild(a)
     }
 };
 
-function readState(data) {
-    alert(data.id);
-};
-
 (function () {
     'use strict';
     window.onload = addBox;
-
-    window.addEventListener('popstate', function (event) {
-        readState(event.state);
-    });
 })();

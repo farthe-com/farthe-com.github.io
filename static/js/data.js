@@ -309,8 +309,13 @@ const tableData = [{
                 desc: "免费开源的编辑器",
                 image: "code.visualstudio.com.ico",
                 website: "https://code.visualstudio.com/"
-
             },
+            {
+                name: "ShadowsocksX-NG",
+                desc: "A secure socks5 proxy, designed to protect your Internet traffic.",
+                image: "shadowsocks.org.png",
+                website: "https://github.com/shadowsocks/ShadowsocksX-NG"
+            }
 
         ]
     },

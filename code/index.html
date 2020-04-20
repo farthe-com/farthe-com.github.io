@@ -4,16 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>代码片段</title>
+    <base target="_blank">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    <!-- <link rel="stylesheet" href="//apps.bdimg.com/libs/highlight.js/9.1.0/styles/vs2015.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/vs2015.css"> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="/static/js/vue.js"></script>
+    <style>
+        #app {
+            display: flex;
+        }
+
+        .sidebar {
+            flex-shrink: 0;
+            margin-right: 20px;
+            width: 150px;
+        }
+
+        .code-box {
+            width: 100%;
+        }
+
+        .show-box {
+            width: 100%;
+        }
+
+        .show-box iframe {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="app">
 
-    <div>
+        <div class="sidebar">
+            <div>代码片段</div>
 
+            <div v-for="item in list">
+                <a href="javascript:;" @click="handleItemClick(item)">{{item.name}}</a>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <!-- 标题 -->
+            <h1>{{current.name}}</h1>
+
+            <!-- 描述 -->
+            <div class="desc" v-html="readme"></div>
+
+            <!-- 代码显示 -->
+            <div class="code-box">
+                <h2>原始代码</h2>
+                <div v-highlight v-html="rawCode"></div>
+            </div>
+
+            <!-- 代码显示 -->
+            <div class="show-box" v-if="current.showCode">
+                <h2>代码效果</h2>
+                <div><iframe :src="current.codeUrl" frameborder="0"></iframe></div>
+            </div>
+        </div>
     </div>
-    <div>
 
-    </div>
+    <script>
+        // https://blog.csdn.net/u014715787/article/details/88559572
+        Vue.directive('highlight', function (el) {
+            let blocks = el.querySelectorAll('pre code');
+            blocks.forEach((block) => {
+                hljs.highlightBlock(block)
+            })
+        })
+
+        const list = [{
+                name: "聚合搜索",
+                codeUrl: "./chrome/search/index.js",
+                readmeUrl: './chrome/search/readme.md',
+            },
+            {
+                name: "代码高亮",
+                codeUrl: "./demo/highlight/index.html",
+                readmeUrl: './demo/highlight/readme.md',
+                showCode: true
+            },
+            {
+                name: "markdown",
+                codeUrl: './demo/markdown/index.html',
+                readmeUrl: './demo/markdown/readme.md',
+                showCode: true
+            }
+        ]
+
+        // https://pengshiyu.blog.csdn.net/article/details/104325766
+        function request(url, method = "GET") {
+            return new Promise((resolve, reject) => {
+                // 大多数浏览器
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open(method, url, true);
+                xmlHttp.send(null);
+                xmlHttp.onreadystatechange = function () {
+                    // 双重判断 xmlHttp状态为服务器响应结束，服务器状态响应结束
+                    if (xmlHttp.readyState == 4)
+                        if (xmlHttp.status == 200) {
+                            var text = xmlHttp.responseText;
+                            resolve(text)
+                        } else {
+                            reject()
+                        }
+                }
+            })
+        }
+
+        // https://blog.csdn.net/dxj124/article/details/89635805
+        function html2Escape(sHtml) {
+            return sHtml.replace(/[<>&"]/g, function (c) {
+                return {
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '&': '&amp;',
+                    '"': '&quot;'
+                } [c];
+            });
+        }
+
+
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    list: list,
+                    showCode: '',
+                    rawCode: '',
+                    readme: '',
+                    current: {}
+                }
+            },
+
+            methods: {
+                handleItemClick(item) {
+                    this.current = item;
+
+                    request(item.codeUrl).then(res => {
+                        this.rawCode = `<pre><code>${html2Escape(res)}</code></pre>`
+                    })
+
+                    if (item.readmeUrl) {
+                        request(item.readmeUrl).then(res => {
+                            this.readme = marked(res)
+                        })
+                    } else {
+                        this.readme = ''
+                    }
+                }
+            },
+
+            created() {
+                this.handleItemClick(this.list[0]);
+            }
+        })
+    </script>
 </body>
 
 </html>
