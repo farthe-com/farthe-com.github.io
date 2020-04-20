@@ -208,12 +208,7 @@ const tableData = [{
                 website: "https://mpv.io/"
             },
 
-            {
-                name: "Tampermonkey",
-                desc: "一款免费的浏览器扩展和最为流行的用户脚本管理器",
-                image: "www.tampermonkey.net.png",
-                website: "https://www.tampermonkey.net/"
-            },
+
 
             {
                 name: "Typora",
@@ -242,13 +237,7 @@ const tableData = [{
                 website: "https://mirrors.tuna.tsinghua.edu.cn/"
 
             },
-            {
-                name: "EditThisCookie",
-                desc: "A very useful extension, one click to quickly view or remove cookies. ",
-                image: "www.editthiscookie.com.png",
-                website: "http://www.editthiscookie.com/"
 
-            },
 
             {
                 name: "Cloudflare",
@@ -292,20 +281,8 @@ const tableData = [{
                 image: "lxml.de.ico",
                 website: "https://lxml.de/"
             },
-            {
-                name: "CrxDL.COM",
-                desc: "下载Chrome扩展插件Crx离线安装包",
-                image: "crxdl.com.png",
-                website: "https://crxdl.com/"
 
-            },
-            {
-                name: "webscraper",
-                desc: "Making web data extraction easy and accessible for everyone",
-                image: "www.webscraper.io.png",
-                website: "https://www.webscraper.io/"
 
-            },
             {
                 name: "NPM",
                 desc: " Node package manager",
@@ -401,6 +378,43 @@ const tableData = [{
                 image: "www.runoob.com.png",
                 website: "https://www.runoob.com/"
             },
+        ]
+    },
+    {
+        name: "Chrome",
+        icon: "el-icon-bangzhu",
+        children: [{
+                name: "CrxDL.COM",
+                desc: "下载Chrome扩展插件Crx离线安装包",
+                image: "crxdl.com.png",
+                website: "https://crxdl.com/"
+
+            },
+            {
+                name: "Tampermonkey",
+                desc: "一款免费的浏览器扩展和最为流行的用户脚本管理器",
+                image: "www.tampermonkey.net.png",
+                website: "https://www.tampermonkey.net/"
+            }, {
+                name: "GreasyFork",
+                desc: "一个提供用户脚本的网站",
+                image: "greasyfork.org.ico",
+                website: "https://greasyfork.org/zh-CN"
+            },
+            {
+                name: "webscraper",
+                desc: "Making web data extraction easy and accessible for everyone",
+                image: "www.webscraper.io.png",
+                website: "https://www.webscraper.io/"
+
+            }, {
+                name: "EditThisCookie",
+                desc: "A very useful extension, one click to quickly view or remove cookies. ",
+                image: "www.editthiscookie.com.png",
+                website: "http://www.editthiscookie.com/"
+
+            },
+
         ]
     }
 
