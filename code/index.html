@@ -158,6 +158,10 @@
             methods: {
                 handleItemClick(item) {
                     this.current = item;
+                    // 清空原来的显示内容
+                    this.readme = ''
+                    this.showCode = ''
+                    this.rawCode = ''
 
                     request(item.codeUrl).then(res => {
                         this.rawCode = `<pre><code>${html2Escape(res)}</code></pre>`
@@ -167,8 +171,6 @@
                         request(item.readmeUrl).then(res => {
                             this.readme = marked(res)
                         })
-                    } else {
-                        this.readme = ''
                     }
                 },
 
