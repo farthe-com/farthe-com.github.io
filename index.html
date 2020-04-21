@@ -18,7 +18,7 @@
     <!-- 引入组件库 -->
     <script src="static/js/vue.js"></script>
     <script src="static/element-ui/index.js"></script>
-    <script src="static/js/data.js"></script>
+    <script src="static/data.js"></script>
 
 </head>
 
@@ -69,7 +69,8 @@
                             <template slot-scope="scope">
                                 <el-link :href="scope.row.website" target="_blank" :underline="false">
                                     <div class="table-item-icon-name">
-                                        <el-image class="table-item-icon" :src="'static/img/' + scope.row.image" fit="contain">
+                                        <el-image class="table-item-icon" :src="'static/img/' + scope.row.image"
+                                            fit="contain">
                                         </el-image>
                                         <div class="table-item-name">{{scope.row.name}}</div>
                                     </div>

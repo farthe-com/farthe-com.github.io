@@ -1,0 +1,30 @@
+<style type="text/css">
+    div {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #EEEEEE;
+        margin: 50px auto;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+    }
+
+    .scale-big {
+        /* 变化时间 */
+        transition: all 1s;
+    }
+
+    .scale-big:hover {
+        /* 比例放大 */
+        transform: scale(1.12);
+    }
+</style>
+
+<div>
+    <img class="scale-big" src="demo.png" />
+</div>

@@ -6,11 +6,11 @@
     <title>代码片段</title>
     <!-- <base target="_blank"> -->
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    <link rel="stylesheet" href="static/default.min.css">
     <!-- <link rel="stylesheet" href="//apps.bdimg.com/libs/highlight.js/9.1.0/styles/vs2015.min.css"> -->
     <!-- <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/vs2015.css"> -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="static/highlight.min.js"></script>
+    <script src="static/marked.min.js"></script>
 
     <script src="/static/js/vue.js"></script>
     <style>
@@ -24,15 +24,15 @@
             width: 150px;
         }
 
+        .content {
+            width: 100%;
+        }
+
         .code-box {
             width: 100%;
         }
 
         .show-box {
-            width: 100%;
-        }
-
-        .show-box iframe {
             width: 100%;
         }
     </style>
@@ -66,39 +66,50 @@
             <!-- 代码显示 -->
             <div class="show-box" v-if="current.showCode">
                 <h2>代码效果</h2>
-                <div><iframe :src="current.codeUrl" frameborder="0"></iframe></div>
+                <div>
+                    <iframe :src="current.codeUrl" frameborder="0" id="urlIframe" marginwidth="0" marginheight="0"
+                        width="100%" name="i" id="urlIframe" scrolling="no" @load="reinitIframe()"></iframe>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // 目录
+        const list = [{
+                name: "鼠标经过图片放大",
+                codeUrl: 'demo/transform/index.html',
+                readmeUrl: 'demo/transform/readme.md',
+                showCode: true
+            },
+            {
+                name: "聚合搜索",
+                codeUrl: "chrome/search/index.js",
+                readmeUrl: 'chrome/search/readme.md',
+            },
+            {
+                name: "代码高亮",
+                codeUrl: "demo/highlight/index.html",
+                readmeUrl: 'demo/highlight/readme.md',
+                showCode: true
+            },
+            {
+                name: "markdown",
+                codeUrl: 'demo/markdown/index.html',
+                readmeUrl: 'demo/markdown/readme.md',
+                showCode: true
+            },
+
+
+        ];
+
         // https://blog.csdn.net/u014715787/article/details/88559572
         Vue.directive('highlight', function (el) {
             let blocks = el.querySelectorAll('pre code');
             blocks.forEach((block) => {
                 hljs.highlightBlock(block)
             })
-        })
-
-        const list = [{
-                name: "聚合搜索",
-                codeUrl: "./chrome/search/index.js",
-                readmeUrl: './chrome/search/readme.md',
-            },
-            {
-                name: "代码高亮",
-                codeUrl: "./demo/highlight/index.html",
-                readmeUrl: './demo/highlight/readme.md',
-                showCode: true
-            },
-            {
-                name: "markdown",
-                codeUrl: './demo/markdown/index.html',
-                readmeUrl: './demo/markdown/readme.md',
-                showCode: true
-            }
-        ]
-
+        });
         // https://pengshiyu.blog.csdn.net/article/details/104325766
         function request(url, method = "GET") {
             return new Promise((resolve, reject) => {
@@ -117,7 +128,7 @@
                         }
                 }
             })
-        }
+        };
 
         // https://blog.csdn.net/dxj124/article/details/89635805
         function html2Escape(sHtml) {
@@ -129,7 +140,7 @@
                     '"': '&quot;'
                 } [c];
             });
-        }
+        };
 
 
         new Vue({
@@ -159,6 +170,23 @@
                     } else {
                         this.readme = ''
                     }
+                },
+
+                /**
+                 * 页面中用到iframe不能完全显示的解决方案
+                 * https://www.cnblogs.com/Johnny_Z/archive/2010/10/27/1862623.html
+                 */
+                reinitIframe() {
+                    var iframe = document.getElementById("urlIframe");
+                    try {
+                        var bHeight = iframe.contentWindow.document.body.scrollHeight;
+                        /*
+                        var dHeight = iframe.contentWindow.document.documentElement.scrollHeight; 
+                        var height = Math.max(bHeight, dHeight);
+                        iframe.height = height; 
+                        */
+                        iframe.height = bHeight;
+                    } catch (ex) {}
                 }
             },
 
