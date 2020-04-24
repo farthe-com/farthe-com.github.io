@@ -1,0 +1,1 @@
+Access to XMLHttpRequest at 'http://127.0.0.1:8080/' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.

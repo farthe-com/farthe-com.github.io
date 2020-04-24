@@ -315,6 +315,12 @@ const tableData = [{
                 desc: "A secure socks5 proxy, designed to protect your Internet traffic.",
                 image: "shadowsocks.org.png",
                 website: "https://github.com/shadowsocks/ShadowsocksX-NG"
+            },
+            {
+                name: "tinypng",
+                desc: "Smart PNG and JPEG compression",
+                image: "tinypng.com.icon",
+                website: "https://tinypng.com/"
             }
 
         ]
