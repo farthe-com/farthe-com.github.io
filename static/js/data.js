@@ -143,6 +143,13 @@ const tableData = [{
                 website: "https://www.djangoproject.com/"
             },
             {
+                name: "Flask",
+                desc: "一个用Python编写的Web应用程序框架",
+                image: "flask.palletsprojects.com.png",
+                website: "https://flask.palletsprojects.com/"
+            },
+
+            {
                 name: "Scrapy",
                 desc: "An open source and collaborative framework for extracting the data you need from websites. In a fast, simple, yet extensible way.",
                 image: "scrapy.org.png",
