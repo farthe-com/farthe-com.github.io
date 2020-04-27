@@ -1,0 +1,28 @@
+<style>
+    .body {
+        height: 800px;
+    }
+
+    #scroll-top {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #eeeeee;
+        color: #222222;
+    }
+</style>
+
+<div class="body">顶部</div>
+
+<div id="scroll-top">回到顶部</div>
+
+<script>
+    document.getElementById('scroll-top').onclick = function () {
+        console.log(document.scrollingElement);
+        document.scrollingElement.scrollTop = 0;
+    }
+</script>

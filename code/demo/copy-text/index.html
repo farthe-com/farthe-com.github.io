@@ -1,0 +1,36 @@
+<input type="text" id="text">
+
+<button onclick="copyValue()">点击复制</button>
+
+<script>
+    function copyValue() {
+        var text = document.getElementById('text').value;
+        doCopy(text)
+    }
+
+    function doCopy(text) {
+        // 浏览器是否支持 copy 命令（选中内容复制到剪贴板）
+        if (document.queryCommandSupported('copy')) {
+            copyText(text);
+        } else {
+            console.log('浏览器不支持');
+        }
+    }
+
+    function copyText(text) {
+        var input = document.createElement('textarea');
+        document.body.appendChild(input);
+        input.value = text;
+        input.focus();
+        input.select();
+
+        // 当前是否有选中文字
+        if (document.queryCommandEnabled('copy')) {
+            var success = document.execCommand('copy');
+            console.log('Copy Ok');
+        } else {
+            console.log('queryCommandEnabled is false');
+        }
+        input.remove();
+    }
+</script>

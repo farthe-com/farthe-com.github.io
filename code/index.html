@@ -53,7 +53,7 @@
         <div class="content">
             <!-- 标题 -->
             <h1>{{current.name}}</h1>
-
+            <p><a :href="current.codeUrl" target="_blank">{{current.codeUrl}}</a></p>
             <!-- 描述 -->
             <div class="desc" v-html="readme"></div>
 
@@ -99,6 +99,27 @@
                 readmeUrl: 'demo/markdown/readme.md',
                 showCode: true
             },
+            {
+                name: "回到顶部",
+                codeUrl: 'demo/scroll-top/index.html',
+                readmeUrl: 'demo/scroll-top/readme.md',
+                showCode: true
+            },
+            {
+                name: "点击复制",
+                codeUrl: 'demo/copy-text/index.html',
+                readmeUrl: 'demo/copy-text/readme.md',
+                showCode: true
+            },
+            {
+                name: "事件",
+                codeUrl: 'demo/event/index.html',
+                readmeUrl: 'demo/event/readme.md',
+                showCode: true
+            },
+
+
+
 
 
         ];

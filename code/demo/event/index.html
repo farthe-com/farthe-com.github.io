@@ -1,0 +1,17 @@
+<div id="box">box</div>
+
+<button onclick="handleClick()">点击触发</button>
+
+<script>
+    var box = document.getElementById('box');
+    // 注册事件
+    box.addEventListener('click', function () {
+        box.innerText = 'box 被点击了';
+    })
+
+    function handleClick() {
+        // 触发指定事件
+        var event = new Event('click');
+        box.dispatchEvent(event);
+    }
+</script>
