@@ -326,9 +326,18 @@ const tableData = [{
             {
                 name: "tinypng",
                 desc: "Smart PNG and JPEG compression",
-                image: "tinypng.com.icon",
+                image: "tinypng.com.ico",
                 website: "https://tinypng.com/"
-            }
+            },
+
+            {
+                name: "freemusicarchive",
+                desc: "Free Music Archive",
+                image: "freemusicarchive.org.png",
+                website: "https://freemusicarchive.org"
+            },
+
+
 
         ]
     },
