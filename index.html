@@ -1,121 +1,166 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>发热网-收集一些不错的网站</title>
     <meta name="keywords" content="发热网,收集一些不错的网站,程序员必备网站" />
-    <meta name="description" content="发热网(http://www.farthe.com/)-收集一些不错的网站，一个提供程序员必备网站的平台，可以自由发布网站，一经收录，将多人受用" />
+    <meta
+      name="description"
+      content="发热网(http://www.farthe.com/)-收集一些不错的网站，一个提供程序员必备网站的平台，可以自由发布网站，一经收录，将多人受用"
+    />
 
     <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/reset.css" />
 
-    <link rel="stylesheet" href="static/element-ui/index.css">
-    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/element-ui/index.css" />
+    <link rel="stylesheet" href="static/css/main.css" />
 
     <!-- 引入组件库 -->
     <script src="static/js/vue.js"></script>
     <script src="static/element-ui/index.js"></script>
     <script src="static/js/data.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="app">
+      <el-container v-cloak>
+        <el-header>
+          <div class="title">
+            <el-link href="./">
+              <div class="title-image-name">
+                <el-image
+                  class="title-image"
+                  src="static/logo.png"
+                  fit="contain"
+                ></el-image>
+                <span class="title-name">发热网</span>
+              </div>
+            </el-link>
+            <span class="title-desc">收集一些不错的网站</span>
+          </div>
 
-        <el-container v-cloak>
-            <el-header>
+          <div class="flex">
+            <el-input
+              size="mini"
+              v-model="keywords"
+              @keypress.enter.native="search"
+            ></el-input>
+            <el-button size="mini" style="margin-left: 5px;" @click="search"
+              ><span class="el-icon-search"></span>
+            </el-button>
 
-                <div class="title">
-                    <el-link href="./">
-                        <div class="title-image-name">
-                            <el-image class="title-image" src="static/logo.png" fit="contain"></el-image>
-                            <span class="title-name">发热网</span>
-                        </div>
-                    </el-link>
-                    <span class="title-desc">收集一些不错的网站</span>
-                </div>
+            <el-link
+              href="https://github.com/farthe-com/farthe-com.github.io/issues"
+              :underline="false"
+              target="_blank"
+              style="margin-left: 20px;"
+            >
+              <el-button size="mini">贡献好网站</el-button>
+            </el-link>
+          </div>
+        </el-header>
 
-                <div class="flex">
-                    <el-input size="mini" v-model="keywords" @keypress.enter.native="search"></el-input>
-                    <el-button size="mini" style="margin-left:5px" @click="search"><span class="el-icon-search"></span>
-                    </el-button>
+        <div class="container">
+          <el-aside width="150px">
+            <el-menu :default-active="defaultActive" @select="handleOpen">
+              <el-menu-item
+                v-for="(item, index) in tableData"
+                :index="`${index}`"
+              >
+                <i :class="item.icon"></i>
+                <span slot="title">{{item.name}}</span>
+              </el-menu-item>
+            </el-menu>
+          </el-aside>
 
-                    <el-link href="https://github.com/farthe-com/farthe-com.github.io/issues" :underline="false"
-                        target="_blank" style="margin-left:20px">
-                        <el-button size="mini">贡献好网站</el-button>
-                    </el-link>
-                </div>
-            </el-header>
+          <el-main>
+            <el-table :data="pagination.list" border style="width: 100%;">
+              <el-table-column
+                type="index"
+                label="序号"
+                width="60"
+                header-align="center"
+                align="center"
+              >
+              </el-table-column>
 
-            <div class="container">
-                <el-aside width="150px">
-                    <el-menu :default-active="defaultActive" @select="handleOpen">
-                        <el-menu-item v-for="(item, index) in tableData" :index="`${index}`">
-                            <i :class="item.icon"></i>
-                            <span slot="title">{{item.name}}</span>
-                        </el-menu-item>
-                    </el-menu>
-                </el-aside>
+              <el-table-column
+                prop="date"
+                label="名称"
+                width="200"
+                header-align="center"
+              >
+                <template slot-scope="scope">
+                  <el-link
+                    :href="scope.row.website"
+                    target="_blank"
+                    :underline="false"
+                  >
+                    <div class="table-item-icon-name">
+                      <el-image
+                        class="table-item-icon"
+                        :src="'static/img/' + scope.row.image"
+                        fit="contain"
+                      >
+                      </el-image>
+                      <div class="table-item-name">{{scope.row.name}}</div>
+                    </div>
+                  </el-link>
+                </template>
+              </el-table-column>
 
-                <el-main>
-                    <el-table :data="pagination.list" border style="width: 100%">
-                        <el-table-column type="index" label="序号" width="60" header-align="center" align="center">
-                        </el-table-column>
+              <el-table-column
+                prop="desc"
+                label="简介"
+                header-align="center"
+              ></el-table-column>
 
-                        <el-table-column prop="date" label="名称" width="200" header-align="center">
-                            <template slot-scope="scope">
-                                <el-link :href="scope.row.website" target="_blank" :underline="false">
-                                    <div class="table-item-icon-name">
-                                        <el-image class="table-item-icon" :src="'static/img/' + scope.row.image"
-                                            fit="contain">
-                                        </el-image>
-                                        <div class="table-item-name">{{scope.row.name}}</div>
-                                    </div>
-                                </el-link>
-                            </template>
+              <el-table-column
+                prop="website"
+                label="地址"
+                header-align="center"
+                width="300"
+              >
+                <template slot-scope="scope">
+                  <el-link :href="scope.row.website" target="_blank"
+                    >{{scope.row.website}}</el-link
+                  >
+                </template>
+              </el-table-column>
+            </el-table>
 
-                        </el-table-column>
+            <el-pagination
+              background
+              layout="total, prev, pager, next"
+              hide-on-single-page
+              style="margin-top: 20px;"
+              :page-size="pagination.pageSize"
+              :total="pagination.total"
+              @current-change="handleCurrentChange"
+              :current-page.sync="pagination.currentPage"
+            >
+            </el-pagination>
+          </el-main>
+        </div>
 
-
-                        <el-table-column prop="desc" label="简介" header-align="center"></el-table-column>
-
-                        <el-table-column prop="website" label="地址" header-align="center" width="300">
-                            <template slot-scope="scope">
-                                <el-link :href="scope.row.website" target="_blank">{{scope.row.website}}</el-link>
-                            </template>
-                        </el-table-column>
-                    </el-table>
-
-                    <el-pagination background layout="total, prev, pager, next" hide-on-single-page
-                        style="margin-top:20px" :page-size="pagination.pageSize" :total="pagination.total"
-                        @current-change="handleCurrentChange" :current-page.sync="pagination.currentPage">
-                    </el-pagination>
-
-                </el-main>
-            </div>
-
-            <!-- <el-footer>
+        <!-- <el-footer>
                 <span>联系我们：mouday@qq.com</span>
             </el-footer> -->
-
-        </el-container>
+      </el-container>
     </div>
 
     <script src="static/js/index.js"></script>
 
     <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?49a7cc95d95e611e1a04f586a40490e1";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?49a7cc95d95e611e1a04f586a40490e1";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
     </script>
-
-</body>
-
+  </body>
 </html>
