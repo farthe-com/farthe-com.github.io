@@ -101,73 +101,7 @@ const tableData = [
       },
     ],
   },
-  {
-    name: "后台",
-    icon: "el-icon-orange",
-    children: [
-      {
-        name: "Laravel",
-        desc: "The PHP Framework for Web Artisans",
-        image: "laravel.com.ico",
-        website: "https://laravel.com/",
-      },
 
-      {
-        name: "AdonisJs",
-        desc: "一个语法清新和优雅的Node.js Web框架",
-        image: "adonisjs.com.cn.png",
-        website: "https://adonisjs.com.cn/",
-      },
-
-      {
-        name: "ThinkPHP",
-        desc: "一个为API开发而设计的高性能框架",
-        image: "www.thinkphp.cn.png",
-        website: "http://www.thinkphp.cn/",
-      },
-
-      {
-        name: "Masonite",
-        desc: "现代的、以开发人员为中心的Python Web框架",
-        image: "docs.masoniteproject.com.png",
-        website: "https://docs.masoniteproject.com/",
-      },
-      {
-        name: "WebMagic",
-        desc: "一个简单灵活的Java爬虫框架",
-        image: "webmagic.io.ico",
-        website: "http://webmagic.io/",
-      },
-      {
-        name: "Django",
-        desc:
-          "Django makes it easier to build better Web apps more quickly and with less code.",
-        image: "www.djangoproject.com.ico",
-        website: "https://www.djangoproject.com/",
-      },
-      {
-        name: "Flask",
-        desc: "一个用Python编写的Web应用程序框架",
-        image: "flask.palletsprojects.com.png",
-        website: "https://flask.palletsprojects.com/",
-      },
-
-      {
-        name: "Scrapy",
-        desc:
-          "An open source and collaborative framework for extracting the data you need from websites. In a fast, simple, yet extensible way.",
-        image: "scrapy.org.png",
-        website: "https://scrapy.org/",
-      },
-
-      {
-        name: "Nuxt.js",
-        desc: "一个基于 Vue.js 的服务端渲染应用框架",
-        image: "zh.nuxtjs.org.ico",
-        website: "https://zh.nuxtjs.org/",
-      },
-    ],
-  },
   {
     name: "工具",
     icon: "el-icon-suitcase",
@@ -252,19 +186,6 @@ const tableData = [
         image: "dash.cloudflare.com.ico",
         website: "https://dash.cloudflare.com/",
       },
-      {
-        name: "Hexo",
-        desc: "快速、简洁且高效的博客框架",
-        image: "hexo.io.png",
-        website: "https://hexo.io/zh-cn/",
-      },
-
-      {
-        name: "Matplotlib",
-        desc: "Python 的绘图库",
-        image: "matplotlib.org.ico",
-        website: "https://matplotlib.org/",
-      },
 
       {
         name: "Heroku",
@@ -272,27 +193,7 @@ const tableData = [
         image: "www.heroku.com.ico",
         website: "https://www.heroku.com/",
       },
-      {
-        name: "Jinja",
-        desc: "modern and designer-friendly templating language for Python",
-        image: "jinja.palletsprojects.com.png",
-        website: "https://jinja.palletsprojects.com/",
-      },
 
-      {
-        name: "lxml",
-        desc:
-          "the most feature-rich and easy-to-use library for processing XML and HTML in the Python language",
-        image: "lxml.de.ico",
-        website: "https://lxml.de/",
-      },
-
-      {
-        name: "NPM",
-        desc: " Node package manager",
-        image: "www.npmjs.com.png",
-        website: "https://www.npmjs.com/",
-      },
       {
         name: "Foxmail",
         desc: "邮箱客户端软件",
@@ -335,7 +236,49 @@ const tableData = [
     ],
   },
   {
-    name: "语言",
+    name: "Node.js",
+    icon: "el-icon-trophy",
+    children: [
+      {
+        name: "Node.js",
+        desc: "一个基于 Chrome V8 引擎 的 JavaScript 运行时",
+        image: "nodejs.org.png",
+        website: "https://nodejs.org/zh-cn/",
+      },
+      {
+        name: "NPM",
+        desc: " Node package manager",
+        image: "www.npmjs.com.png",
+        website: "https://www.npmjs.com/",
+      },
+      {
+        name: "AdonisJs",
+        desc: "一个语法清新和优雅的Node.js Web框架",
+        image: "adonisjs.com.cn.png",
+        website: "https://adonisjs.com.cn/",
+      },
+      {
+        name: "Nuxt.js",
+        desc: "一个基于 Vue.js 的服务端渲染应用框架",
+        image: "zh.nuxtjs.org.ico",
+        website: "https://zh.nuxtjs.org/",
+      },
+      {
+        name: "Hexo",
+        desc: "快速、简洁且高效的博客框架",
+        image: "hexo.io.png",
+        website: "https://hexo.io/zh-cn/",
+      },
+      {
+        name: "vue-element-admin",
+        desc: "基于 vue 和 element-ui实现的后台前端解决方案",
+        image: "",
+        website: "https://github.com/PanJiaChen/vue-element-admin",
+      },
+    ],
+  },
+  {
+    name: "Python",
     icon: "el-icon-trophy",
     children: [
       {
@@ -345,26 +288,104 @@ const tableData = [
         website: "https://www.python.org/",
       },
       {
-        name: "PHP",
-        desc: "一种创建动态交互性站点的强有力的服务器端脚本语言",
-        image: "www.php.net.png",
-        website: "https://www.php.net/",
+        name: "Masonite",
+        desc: "现代的、以开发人员为中心的Python Web框架",
+        image: "docs.masoniteproject.com.png",
+        website: "https://docs.masoniteproject.com/",
+      },
+
+      {
+        name: "Matplotlib",
+        desc: "Python 的绘图库",
+        image: "matplotlib.org.ico",
+        website: "https://matplotlib.org/",
       },
       {
-        name: "Node.js",
-        desc: "一个基于 Chrome V8 引擎 的 JavaScript 运行时",
-        image: "nodejs.org.png",
-        website: "https://nodejs.org/zh-cn/",
+        name: "Jinja",
+        desc: "modern and designer-friendly templating language for Python",
+        image: "jinja.palletsprojects.com.png",
+        website: "https://jinja.palletsprojects.com/",
       },
+      {
+        name: "Django",
+        desc:
+          "Django makes it easier to build better Web apps more quickly and with less code.",
+        image: "www.djangoproject.com.ico",
+        website: "https://www.djangoproject.com/",
+      },
+      {
+        name: "Flask",
+        desc: "一个用Python编写的Web应用程序框架",
+        image: "flask.palletsprojects.com.png",
+        website: "https://flask.palletsprojects.com/",
+      },
+
+      {
+        name: "Scrapy",
+        desc:
+          "An open source and collaborative framework for extracting the data you need from websites. In a fast, simple, yet extensible way.",
+        image: "scrapy.org.png",
+        website: "https://scrapy.org/",
+      },
+      {
+        name: "lxml",
+        desc:
+          "the most feature-rich and easy-to-use library for processing XML and HTML in the Python language",
+        image: "lxml.de.ico",
+        website: "https://lxml.de/",
+      },
+
+      {
+        name: "jieba",
+        desc: "“结巴”中文分词：做最好的 Python 中文分词组件",
+        image: "github.com.fxsjy.jieba.png",
+        website: "https://github.com/fxsjy/jieba",
+      },
+    ],
+  },
+
+  {
+    name: "Java",
+    icon: "el-icon-trophy",
+    children: [
       {
         name: "Java",
         desc: "一项用于开发应用程序的技术",
         image: "www.java.com.png",
         website: "https://www.java.com/zh_CN/",
       },
+      {
+        name: "WebMagic",
+        desc: "一个简单灵活的Java爬虫框架",
+        image: "webmagic.io.ico",
+        website: "http://webmagic.io/",
+      },
     ],
   },
-
+  {
+    name: "PHP",
+    icon: "el-icon-trophy",
+    children: [
+      {
+        name: "PHP",
+        desc: "一种创建动态交互性站点的强有力的服务器端脚本语言",
+        image: "www.php.net.png",
+        website: "https://www.php.net/",
+      },
+      {
+        name: "Laravel",
+        desc: "The PHP Framework for Web Artisans",
+        image: "laravel.com.ico",
+        website: "https://laravel.com/",
+      },
+      {
+        name: "ThinkPHP",
+        desc: "一个为API开发而设计的高性能框架",
+        image: "www.thinkphp.cn.png",
+        website: "http://www.thinkphp.cn/",
+      },
+    ],
+  },
   {
     name: "阅读",
     icon: "el-icon-document",
