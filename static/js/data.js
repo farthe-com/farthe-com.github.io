@@ -415,8 +415,15 @@ const tableData = [
         image: "www.runoob.com.png",
         website: "https://www.runoob.com/",
       },
+      {
+        name: "慕课网",
+        desc: "IT技能学习平台",
+        image: "www.imooc.com.png",
+        website: "https://www.imooc.com/",
+      },
     ],
   },
+
   {
     name: "Chrome",
     icon: "el-icon-bangzhu",
